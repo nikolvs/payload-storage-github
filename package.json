@@ -27,7 +27,7 @@
     "prepublishOnly": "pnpm clean && pnpm build && pnpm copyfiles"
   },
   "peerDependencies": {
-    "payload": "^3.0.0"
+    "payload": "^3.0.0-beta.111"
   },
   "dependencies": {
     "@payloadcms/plugin-cloud-storage": "^3.0.0-beta.111",
