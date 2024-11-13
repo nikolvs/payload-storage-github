@@ -55,9 +55,6 @@ jobs:
         env:
           DO_NOT_TRACK: 1 # Disable Turbopack telemetry
 
-      - run: pnpm build:app
-        name: Build dev dir app
-
       - name: Cache build
         uses: actions/cache@v4
         timeout-minutes: 10
