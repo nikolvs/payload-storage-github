@@ -22,6 +22,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name:  Automated Version Bump
+        uses:  phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag-prefix:  'v'
+
       - name: Setup Node@${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
@@ -50,7 +57,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm build
+      - run: pnpm prepublishOnly
         name: Build package
         env:
           DO_NOT_TRACK: 1 # Disable Turbopack telemetry
@@ -62,9 +69,8 @@ jobs:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}
 
-      - name:  Automated Version Bump
-        uses:  phips28/gh-action-bump-version@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish package to NPM
+        uses: JS-DevTools/npm-publish@v3
         with:
-          tag-prefix:  'v'
+          access: public
+          token: ${{ secrets.NPM_TOKEN }}
