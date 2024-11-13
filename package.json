@@ -4,6 +4,11 @@
   "description": "Payload storage adapter for GitHub",
   "author": "Nikolas Silva <nikolas.rsilva@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "payload",
+    "payloadcms",
+    "payload-plugin"
+  ],
   "files": [
     "dist",
     "LICENSE.md",
