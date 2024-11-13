@@ -1,2 +1,2 @@
-export { myPlugin } from './plugin.js'
-export type { MyPluginOptions } from './types.js'
+export { githubStorage } from './plugin.js'
+export type { GithubStorageOptions } from './types.js'
