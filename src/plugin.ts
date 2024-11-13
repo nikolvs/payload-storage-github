@@ -1,14 +1,15 @@
-import type { Config, Plugin } from 'payload'
 import type {
   Adapter,
   CollectionOptions,
   GeneratedAdapter,
   PluginOptions as GithubStoragePluginOptions,
 } from '@payloadcms/plugin-cloud-storage/types'
-import type { GithubStorageOptions } from './types.js'
+import type { Config, Plugin } from 'payload'
 
 import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage'
 import { Octokit } from 'octokit'
+
+import type { GithubStorageOptions } from './types.js'
 
 import { getGenerateURL } from './generateURL.js'
 import { getHandleDelete } from './handleDelete.js'
@@ -64,13 +65,13 @@ export const githubStorage: GithubStoragePlugin =
   }
 
 function githubStorageInternal({
+  branch = 'main',
+  options,
   owner,
   repo,
-  options,
-  branch = 'main',
 }: GithubStorageOptions): Adapter {
   return ({ collection, prefix }): GeneratedAdapter => {
-    let storageClient: Octokit | null = null
+    let storageClient: null | Octokit = null
 
     const getStorageClient = (): Octokit => {
       if (storageClient) {
@@ -85,24 +86,24 @@ function githubStorageInternal({
       name: 'github',
       generateURL: getGenerateURL({ branch, owner, repo }),
       handleDelete: getHandleDelete({
+        branch,
         getStorageClient,
         owner,
         repo,
-        branch,
       }),
       handleUpload: getHandleUpload({
+        branch,
         getStorageClient,
         owner,
-        repo,
-        branch,
         prefix,
+        repo,
       }),
       staticHandler: getStaticHandler({
-        owner,
-        repo,
         branch,
         collection,
         getStorageClient,
+        owner,
+        repo,
       }),
     }
   }

@@ -1,34 +1,35 @@
-import type { CollectionConfig } from 'payload'
 import type { StaticHandler } from '@payloadcms/plugin-cloud-storage/types'
+import type { Octokit } from 'octokit'
+import type { CollectionConfig } from 'payload'
 
-import { Octokit, RequestError } from 'octokit'
 import path from 'node:path'
+import { RequestError } from 'octokit'
 
 import { getFileProperties } from './utilities'
 
 interface Args {
-  owner: string
-  repo: string
   branch: string
   collection: CollectionConfig
   getStorageClient: () => Octokit
+  owner: string
+  repo: string
 }
 
 export const getStaticHandler = ({
+  branch,
   collection,
+  getStorageClient,
   owner,
   repo,
-  branch,
-  getStorageClient,
 }: Args): StaticHandler => {
   return async (req, { params: { filename } }) => {
     try {
-      const { prefix, mimeType } = await getFileProperties({ collection, filename, req })
+      const { mimeType, prefix } = await getFileProperties({ collection, filename, req })
       const { data, headers } = await getStorageClient().rest.repos.getContent({
         owner,
-        repo,
-        ref: branch,
         path: path.posix.join(prefix, filename),
+        ref: branch,
+        repo,
       })
 
       const bodyBuffer = 'content' in data ? Buffer.from(data.content, 'base64') : ''

@@ -1,7 +1,8 @@
+import type { Octokit } from 'octokit'
 import type { CollectionConfig, PayloadRequest, UploadConfig } from 'payload'
 
-import { Octokit, RequestError } from 'octokit'
 import path from 'node:path'
+import { RequestError } from 'octokit'
 
 /**
  * Get the SHA of a GitHub file.
@@ -17,9 +18,9 @@ export const getFileSHA = async (
   try {
     const response = await getStorageClient().rest.repos.getContent({
       owner,
-      repo,
-      ref: branch,
       path: path.posix.join(prefix, filename),
+      ref: branch,
+      repo,
     })
 
     return 'sha' in response.data ? response.data.sha : ''
@@ -43,7 +44,7 @@ export async function getFileProperties({
   collection: CollectionConfig
   filename: string
   req: PayloadRequest
-}): Promise<{ prefix: string; mimeType: string }> {
+}): Promise<{ mimeType: string; prefix: string }> {
   const imageSizes = (collection?.upload as UploadConfig)?.imageSizes || []
   const files = await req.payload.find({
     collection: collection.slug,
@@ -62,10 +63,10 @@ export async function getFileProperties({
     },
   })
 
-  const [doc] = files?.docs
+  const doc = files?.docs?.[0]
 
   return {
-    prefix: doc && 'prefix' in doc ? (doc.prefix as string) : '',
     mimeType: doc && 'mimeType' in doc ? (doc.mimeType as string) : '',
+    prefix: doc && 'prefix' in doc ? (doc.prefix as string) : '',
   }
 }

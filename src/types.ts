@@ -1,19 +1,9 @@
 import type { CollectionOptions } from '@payloadcms/plugin-cloud-storage/types'
-import { Octokit } from 'octokit'
+import type { Octokit } from 'octokit'
 
 type OctokitOptions = ConstructorParameters<typeof Octokit>[0]
 
 export interface GithubStorageOptions {
-  /**
-   * The name of the repository owner (GitHub username or organization).
-   */
-  owner: string
-
-  /**
-   * The repository name.
-   */
-  repo: string
-
   /**
    * Which branch to upload/read files.
    *
@@ -39,10 +29,20 @@ export interface GithubStorageOptions {
    * @see https://github.com/octokit/octokit.js
    */
   options: OctokitOptions
+
+  /**
+   * The name of the repository owner (GitHub username or organization).
+   */
+  owner: string
+
+  /**
+   * The repository name.
+   */
+  repo: string
 }
 
 export interface GithubAuthor {
-  name: string
-  email: string
   date?: string
+  email: string
+  name: string
 }

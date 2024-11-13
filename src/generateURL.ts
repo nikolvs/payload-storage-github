@@ -3,9 +3,9 @@ import type { GenerateURL } from '@payloadcms/plugin-cloud-storage/types'
 import path from 'node:path'
 
 interface Args {
+  branch: string
   owner: string
   repo: string
-  branch: string
 }
 
 export const getGenerateURL = ({ branch, owner, repo }: Args): GenerateURL => {

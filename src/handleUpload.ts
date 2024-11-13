@@ -1,43 +1,44 @@
 import type { HandleUpload } from '@payloadcms/plugin-cloud-storage/types'
-import type { GithubAuthor } from './types'
+import type { Octokit } from 'octokit'
 
-import { Octokit } from 'octokit'
 import path from 'node:path'
+
+import type { GithubAuthor } from './types'
 
 import { getFileSHA } from './utilities'
 
 interface Args {
-  owner: string
-  repo: string
-  branch: string
-  prefix?: string
-  committer?: GithubAuthor
   author?: GithubAuthor
+  branch: string
+  committer?: GithubAuthor
   getStorageClient: () => Octokit
+  owner: string
+  prefix?: string
+  repo: string
 }
 
 export const getHandleUpload = ({
-  getStorageClient,
-  committer,
   author,
-  owner,
-  repo,
   branch,
+  committer,
+  getStorageClient,
+  owner,
   prefix = '',
+  repo,
 }: Args): HandleUpload => {
   return async ({ data, file }) => {
     const sha = await getFileSHA(getStorageClient, owner, repo, branch, prefix, file.filename)
 
     await getStorageClient().rest.repos.createOrUpdateFileContents({
-      committer,
       author,
-      owner,
-      repo,
       branch,
-      sha,
-      path: path.posix.join(data.prefix || prefix, file.filename),
+      committer,
       content: file.buffer.toString('base64'),
       message: data.commitMessage || `:arrow_up_small: Upload "${file.filename}"`,
+      owner,
+      path: path.posix.join(data.prefix || prefix, file.filename),
+      repo,
+      sha,
     })
   }
 }

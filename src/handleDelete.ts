@@ -1,40 +1,41 @@
 import type { HandleDelete } from '@payloadcms/plugin-cloud-storage/types'
-import type { GithubAuthor } from './types'
+import type { Octokit } from 'octokit'
 
-import { Octokit } from 'octokit'
 import path from 'node:path'
+
+import type { GithubAuthor } from './types'
 
 import { getFileSHA } from './utilities'
 
 interface Args {
-  owner: string
-  repo: string
+  author?: GithubAuthor
   branch: string
   committer?: GithubAuthor
-  author?: GithubAuthor
   getStorageClient: () => Octokit
+  owner: string
+  repo: string
 }
 
 export const getHandleDelete = ({
-  getStorageClient,
-  committer,
   author,
+  branch,
+  committer,
+  getStorageClient,
   owner,
   repo,
-  branch,
 }: Args): HandleDelete => {
   return async ({ doc: { prefix = '' }, filename }) => {
     const sha = await getFileSHA(getStorageClient, owner, repo, branch, prefix, filename)
 
     await getStorageClient().rest.repos.deleteFile({
-      committer,
       author,
-      owner,
-      repo,
       branch,
-      sha,
-      path: path.posix.join(prefix, filename),
+      committer,
       message: `:x: Delete "${filename}"`,
+      owner,
+      path: path.posix.join(prefix, filename),
+      repo,
+      sha,
     })
   }
 }
