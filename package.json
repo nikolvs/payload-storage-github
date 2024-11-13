@@ -31,15 +31,15 @@
     "payload": "^3.0.0"
   },
   "dependencies": {
-    "@payloadcms/plugin-cloud-storage": "^3.0.0",
+    "@payloadcms/plugin-cloud-storage": "^3.0.0-beta.111",
     "octokit": "^4.0.2"
   },
   "devDependencies": {
-    "@payloadcms/eslint-config": "^3.0.0",
+    "@payloadcms/eslint-config": "^3.0.0-beta.111",
     "@types/node": "22.7.5",
     "copyfiles": "^2.4.1",
     "next": "^15.0.0",
-    "payload": "^3.0.0",
+    "payload": "^3.0.0-beta.111",
     "rimraf": "^6.0.1",
     "typescript": "5.5.3"
   },
