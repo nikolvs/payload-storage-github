@@ -1,6 +1,6 @@
 {
   "name": "payload-storage-github",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Payload storage adapter for GitHub",
   "author": "Nikolas Silva <nikolas.rsilva@gmail.com>",
   "license": "MIT",
