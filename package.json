@@ -18,8 +18,9 @@
   "types": "./src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "pnpm build:swc",
+    "build": "pnpm build:types && pnpm build:swc",
     "build:swc": "swc ./src -d ./dist --config-file .swcrc --strip-leading-paths",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "build:clean": "pnpm clean && pnpm build",
     "clean": "rimraf dist *.tsbuildinfo",
     "lint": "eslint .",
