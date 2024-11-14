@@ -18,13 +18,14 @@
   "types": "./src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc --project tsconfig.json",
-    "clean": "rimraf {dist,*.tsbuildinfo,package}",
-    "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
+    "build": "pnpm build:swc",
+    "build:swc": "swc ./src -d ./dist --config-file .swcrc --strip-leading-paths",
+    "build:clean": "pnpm clean && pnpm build",
+    "clean": "rimraf dist *.tsbuildinfo",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepack": "pnpm prepublishOnly",
-    "prepublishOnly": "pnpm clean && pnpm build && pnpm copyfiles"
+    "prepublishOnly": "pnpm build:clean"
   },
   "peerDependencies": {
     "payload": "^3.0.0-beta.111"
@@ -35,8 +36,9 @@
   },
   "devDependencies": {
     "@payloadcms/eslint-config": "^3.0.0-beta.111",
+    "@swc/cli": "^0.5.0",
+    "@swc/core": "^1.9.2",
     "@types/node": "22.7.5",
-    "copyfiles": "^2.4.1",
     "next": "^15.0.0",
     "payload": "^3.0.0-beta.111",
     "rimraf": "^6.0.1",

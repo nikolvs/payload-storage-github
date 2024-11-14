@@ -69,8 +69,7 @@ jobs:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}
 
-      - name: Publish package to NPM
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          access: public
-          token: ${{ secrets.NPM_TOKEN }}
+      - name: Publish package
+        run: pnpm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
