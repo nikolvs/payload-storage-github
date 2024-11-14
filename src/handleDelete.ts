@@ -24,7 +24,8 @@ export const getHandleDelete = ({
   owner,
   repo,
 }: Args): HandleDelete => {
-  return async ({ doc: { prefix = '' }, filename }) => {
+  return async ({ doc, filename }) => {
+    const prefix = doc.prefix || ''
     const sha = await getFileSHA(getStorageClient, owner, repo, branch, prefix, filename)
 
     await getStorageClient().rest.repos.deleteFile({
