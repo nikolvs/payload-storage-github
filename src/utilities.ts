@@ -66,7 +66,7 @@ export async function getFileProperties({
   const doc = files?.docs?.[0]
 
   return {
-    mimeType: doc && 'mimeType' in doc ? (doc.mimeType as string) : '',
-    prefix: doc && 'prefix' in doc ? (doc.prefix as string) : '',
+    mimeType: doc?.mimeType || '',
+    prefix: doc?.prefix || '',
   }
 }
