@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@payloadcms/plugin-cloud-storage':
-        specifier: ^3.0.2
-        version: 3.0.2(payload@3.0.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3))
+        specifier: ^3.2.2
+        version: 3.2.2(payload@3.2.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3))
       octokit:
         specifier: ^4.0.2
         version: 4.0.2
@@ -31,8 +31,8 @@ importers:
         specifier: ^15.0.0
         version: 15.0.3(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(sass@1.77.4)
       payload:
-        specifier: ^3.0.2
-        version: 3.0.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3)
+        specifier: ^3.2.2
+        version: 3.2.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3)
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -690,8 +690,8 @@ packages:
   '@payloadcms/eslint-plugin@3.0.0':
     resolution: {integrity: sha512-vhv9snXlSkSquIQGrxkd03VIiVBx/j4NyrOPosNPqTxW3TaatMmEuHoNbVBd4p3AtODP2LCFhdxO7DnuacEPbw==}
 
-  '@payloadcms/plugin-cloud-storage@3.0.2':
-    resolution: {integrity: sha512-TZoHWTKycayAIW7Bphcw2Fsz6lW7vIdH02w6DDar8ajmcs4p80c9BH+p/f7vCuiVHKgQ3C+o2H7v/hZRmrP+Ng==}
+  '@payloadcms/plugin-cloud-storage@3.2.2':
+    resolution: {integrity: sha512-eFqhkexUYzt6sEMRvtvR9be0Y0HxfkCGvWx6TAHqQXu6tNu8qJL86rtqVpElZ1+jRxtZpbDu9mFFMfuzi7K3ug==}
     peerDependencies:
       '@aws-sdk/client-s3': ^3.614.0
       '@aws-sdk/lib-storage': ^3.614.0
@@ -699,7 +699,7 @@ packages:
       '@azure/storage-blob': ^12.11.0
       '@google-cloud/storage': ^7.7.0
       '@vercel/blob': ^0.22.3
-      payload: 3.0.2
+      payload: 3.2.2
     peerDependenciesMeta:
       '@aws-sdk/client-s3':
         optional: true
@@ -714,8 +714,8 @@ packages:
       '@vercel/blob':
         optional: true
 
-  '@payloadcms/translations@3.0.2':
-    resolution: {integrity: sha512-qwixoVF5ECL4/O/I2y9qIymjrXSOF5eE0wo2bGm3g+XEg+vI/lqeQ2CEOduhETmy5r+aZtd6eE90ZsX5/N840w==}
+  '@payloadcms/translations@3.2.2':
+    resolution: {integrity: sha512-7rZI8KVMIoDOj2+niwcaTKVU4BucsfQK2k6RTAxin8S4mpf9VVjXlfaZJsmvn9sEFOjeEtfd1vUBbBA6+OpYLw==}
 
   '@sindresorhus/is@4.6.0':
     resolution: {integrity: sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==}
@@ -2155,8 +2155,8 @@ packages:
     resolution: {integrity: sha512-ypGJsmGtdXUOeM5u93TyeIEfEhM6s+ljAhrk5vAvSx8uyY/02OvrZnA0YNGUrPXfpJMgI1ODd3nwz8Npx4O4cg==}
     engines: {node: 20 || >=22}
 
-  payload@3.0.2:
-    resolution: {integrity: sha512-w7E+WI+tRlmiQVxHxLmTXIGrQTiNbmsCBohhJjXY5nMuKMt2AnV1SllX1z63gccXzyVvs+L+hSjdi0vuvegKzw==}
+  payload@3.2.2:
+    resolution: {integrity: sha512-y8AqmtXoLbk7XazM9s3lVjIthj25+IIm6ksv692wlhGcD0QdO7I6X0pCjv843z3ku6L/6wUxpPLr0X9x2+1ZlQ==}
     engines: {node: ^18.20.2 || >=20.9.0}
     hasBin: true
     peerDependencies:
@@ -3396,13 +3396,13 @@ snapshots:
       - svelte-eslint-parser
       - vue-eslint-parser
 
-  '@payloadcms/plugin-cloud-storage@3.0.2(payload@3.0.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3))':
+  '@payloadcms/plugin-cloud-storage@3.2.2(payload@3.2.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3))':
     dependencies:
       find-node-modules: 2.1.3
-      payload: 3.0.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3)
+      payload: 3.2.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3)
       range-parser: 1.2.1
 
-  '@payloadcms/translations@3.0.2':
+  '@payloadcms/translations@3.2.2':
     dependencies:
       date-fns: 4.1.0
 
@@ -3531,7 +3531,7 @@ snapshots:
   '@typescript-eslint/eslint-plugin@8.14.0(@typescript-eslint/parser@8.14.0(eslint@9.14.0)(typescript@5.5.3))(eslint@9.14.0)(typescript@5.5.3)':
     dependencies:
       '@eslint-community/regexpp': 4.11.1
-      '@typescript-eslint/parser': 8.14.0(eslint@9.14.0)(typescript@5.6.3)
+      '@typescript-eslint/parser': 8.14.0(eslint@9.14.0)(typescript@5.5.3)
       '@typescript-eslint/scope-manager': 8.14.0
       '@typescript-eslint/type-utils': 8.14.0(eslint@9.14.0)(typescript@5.5.3)
       '@typescript-eslint/utils': 8.14.0(eslint@9.14.0)(typescript@5.5.3)
@@ -3550,7 +3550,7 @@ snapshots:
   '@typescript-eslint/eslint-plugin@8.14.0(@typescript-eslint/parser@8.14.0(eslint@9.14.0)(typescript@5.5.3))(eslint@9.14.0)(typescript@5.6.3)':
     dependencies:
       '@eslint-community/regexpp': 4.11.1
-      '@typescript-eslint/parser': 8.14.0(eslint@9.14.0)(typescript@5.6.3)
+      '@typescript-eslint/parser': 8.14.0(eslint@9.14.0)(typescript@5.5.3)
       '@typescript-eslint/scope-manager': 8.14.0
       '@typescript-eslint/type-utils': 8.14.0(eslint@9.14.0)(typescript@5.6.3)
       '@typescript-eslint/utils': 8.14.0(eslint@9.14.0)(typescript@5.6.3)
@@ -3562,6 +3562,19 @@ snapshots:
       ts-api-utils: 1.3.0(typescript@5.6.3)
     optionalDependencies:
       typescript: 5.6.3
+    transitivePeerDependencies:
+      - supports-color
+
+  '@typescript-eslint/parser@8.14.0(eslint@9.14.0)(typescript@5.5.3)':
+    dependencies:
+      '@typescript-eslint/scope-manager': 8.14.0
+      '@typescript-eslint/types': 8.14.0
+      '@typescript-eslint/typescript-estree': 8.14.0(typescript@5.5.3)
+      '@typescript-eslint/visitor-keys': 8.14.0
+      debug: 4.3.7
+      eslint: 9.14.0
+    optionalDependencies:
+      typescript: 5.5.3
     transitivePeerDependencies:
       - supports-color
 
@@ -3650,7 +3663,6 @@ snapshots:
       typescript: 5.5.3
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@typescript-eslint/typescript-estree@8.14.0(typescript@5.6.3)':
     dependencies:
@@ -5105,11 +5117,11 @@ snapshots:
       lru-cache: 11.0.2
       minipass: 7.1.2
 
-  payload@3.0.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3):
+  payload@3.2.2(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)(typescript@5.5.3):
     dependencies:
       '@monaco-editor/react': 4.6.0(monaco-editor@0.38.0)(react-dom@19.0.0-rc-3edc000d-20240926(react@19.0.0-rc-3edc000d-20240926))(react@19.0.0-rc-3edc000d-20240926)
       '@next/env': 15.0.3
-      '@payloadcms/translations': 3.0.2
+      '@payloadcms/translations': 3.2.2
       '@types/busboy': 1.5.4
       ajv: 8.17.1
       bson-objectid: 2.0.4
@@ -5573,7 +5585,6 @@ snapshots:
   ts-api-utils@1.3.0(typescript@5.5.3):
     dependencies:
       typescript: 5.5.3
-    optional: true
 
   ts-api-utils@1.3.0(typescript@5.6.3):
     dependencies:
